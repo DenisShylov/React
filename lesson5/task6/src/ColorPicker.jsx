@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 class ColorPicker extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       color: '',
     };
@@ -22,20 +22,20 @@ class ColorPicker extends Component {
   render() {
     return (
       <div>
-        <div class="picker__title">{this.state.color}</div>
+        <div className="picker__title">{this.state.color}</div>
         <div>
           <button
-            class="picker__button picker__button_coral"
+            className="picker__button picker__button_coral"
             onMouseEnter={() => this.showColor('Coral')}
             onMouseLeave={() => this.removeColor()}
           ></button>
           <button
-            class="picker__button picker__button_aqua"
+            className="picker__button picker__button_aqua"
             onMouseEnter={() => this.showColor('Aqua')}
             onMouseLeave={() => this.removeColor()}
           ></button>
           <button
-            class="picker__button picker__button_bisque"
+            className="picker__button picker__button_bisque"
             onMouseEnter={() => this.showColor('Bisque')}
             onMouseLeave={() => this.removeColor()}
           ></button>
