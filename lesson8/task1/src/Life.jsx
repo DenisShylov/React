@@ -5,6 +5,10 @@ class Life extends Component {
     super(props);
 
     console.log('constructor: good place to create state');
+
+    this.state = {
+      text: null,
+    };
   }
   componentDidMount() {
     console.log('componentDidMount: API calls, subscriptions');
@@ -12,8 +16,9 @@ class Life extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     console.log(
-      'shouldComponentUpdate(nextProps, nextState): decide to render or not render'
+      'shouldComponentUpdate(nextProps, nextState): decide to render or not to render'
     );
+    return true;
   }
   componentDidUpdate(prevProps, prevState) {
     console.log(
