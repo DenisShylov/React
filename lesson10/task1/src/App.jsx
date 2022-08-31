@@ -8,26 +8,22 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.fetchUser(this.props.userId);
-  }
-
-  fetchUser = (userId) => {
-    fetch(`https://api.github.com/users/${userId}`)
+    fetch(`https://api.github.com/users/${this.props.userId}`)
       .then((response) => response.json())
       .then((data) => {
         this.setState({
           user: data,
         });
       });
-  };
+  }
 
   render() {
-    return (
+    return this.state.user ? (
       <div className="page">
         <UserMenu userData={this.state.user} />
         <UserProfile userData={this.state.user} />;
       </div>
-    );
+    ) : null;
   }
 }
 

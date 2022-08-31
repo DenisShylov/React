@@ -1,10 +1,6 @@
 import React from 'react';
 
 const UserMenu = ({ userData }) => {
-  if (!userData) {
-    return null;
-  }
-
   return (
     <header className="header">
       <div className="menu">
