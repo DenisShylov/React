@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   handleChange = (event) => {
-    const { name, value } = event.targer;
+    const { name, value } = event.target;
     this.setState({
       userData: {
         ...this.state.userData,
@@ -30,13 +30,13 @@ class App extends Component {
           <h1 className="title">{`Hello, ${this.state.userData.firstName} ${this.state.userData.lastName}`}</h1>
           <main className="content">
             <ShoppingCart userName={this.state.userData.firstName} />
+            <div className="column">
+              <Profile
+                userData={this.state.userData}
+                handleChange={this.handleChange}
+              />
+            </div>
           </main>
-        </div>
-        <div className="column">
-          <Profile
-            userData={this.state.userData}
-            handleChange={this.handleChange}
-          />
         </div>
       </>
     );
