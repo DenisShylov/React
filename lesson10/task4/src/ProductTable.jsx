@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductCategoryRow from './ProductCategoryRow ';
+import ProductCategoryRow from './ProductCategoryRow';
 import ProductRow from './ProductRow';
 
 const ProductTable = ({ filterText, inStockOnly, products }) => {
