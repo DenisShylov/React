@@ -1,31 +1,40 @@
 import React, { Component } from 'react';
-import UserMenu from './UserMenu.jsx';
-import UserProfile from './UserProfile.jsx';
+import Dialog from './Dialog';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userData: null,
-    };
-  }
-  componentDidMount() {
-    fetch(`https://api.github.com/users/${this.props.userId}`)
-      .then((response) => response.json())
-      .then((userData) => {
-        this.setState({
-          userData,
-        });
-      });
-  }
+  state = {
+    isOpen: false,
+  };
+  hideDialog = () => {
+    this.setState({
+      isOpen: false,
+    });
+  };
 
+  showDialog = () => {
+    this.setState({
+      isOpen: true,
+    });
+  };
   render() {
-    return this.state.userData ? (
-      <div className="page">
-        <UserMenu userData={this.state.userData} />
-        <UserProfile userData={this.state.userData} />;
+    const elem = <p>Recomendation</p>;
+    return (
+      <div className="app">
+        <button className="btn" onClick={this.showDialog}>
+          Show dialog
+        </button>
+        <Dialog
+          title={elem}
+          onClose={this.hideDialog}
+          isOpen={this.state.isOpen}
+        >
+          <p>
+            Use immutable array methods to work with data. It will help to avoid
+            bugs
+          </p>
+        </Dialog>
       </div>
-    ) : null;
+    );
   }
 }
 
