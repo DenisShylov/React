@@ -1,31 +1,18 @@
 import React, { Component } from 'react';
-import UserMenu from './UserMenu.jsx';
-import UserProfile from './UserProfile.jsx';
+import Expand from './Expand.jsx';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userData: null,
-    };
-  }
-  componentDidMount() {
-    fetch(`https://api.github.com/users/${this.props.userId}`)
-      .then((response) => response.json())
-      .then((userData) => {
-        this.setState({
-          userData,
-        });
-      });
-  }
-
   render() {
-    return this.state.userData ? (
-      <div className="page">
-        <UserMenu userData={this.state.userData} />
-        <UserProfile userData={this.state.userData} />;
+    return (
+      <div className="app">
+        <Expand title="Some title">
+          <p>
+            Hooks are a new addition in React 16.8. They let you use state and
+            other React features without writing a class.
+          </p>
+        </Expand>
       </div>
-    ) : null;
+    );
   }
 }
 
