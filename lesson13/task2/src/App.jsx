@@ -2,8 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import Home from './Home';
 import Products from './Products';
-import Contacts from './Contacts';
-import PageNotFound from './PageNotFound';
+
 const App = () => {
   return (
     <BrowserRouter>
